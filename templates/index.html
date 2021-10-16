@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+{% csrf_token %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+    <title>Home-ToDo List</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">ToDo List</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tasks">Tasks</a>
+        </li>
+    
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+{% if success %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Hollo user!  </strong>form subbmitted
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  <span aria-hidden='true'>&times;</span>
+  </button>
+</div>
+{% endif %}
+<div class= 'container my-3'>
+<h2 class='text-center'> Welcome to Todo List {{name}}-Add a Task</h2>
+{%comment%} find me {%endcomment%}
+<form action="/" method="post">
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="title" class="form-label">Task Title</label>
+    <input type="text" class="form-control" name='title' id="title" aria-describedby="emailHelp">
+  
+  </div>
+  <div class="mb-3">
+    <label for="desc" class="desc"> Task Descrption</label>
+    <textarea class='form-control' name="desc" cols="20" rows="10"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<footer>
+<p class="text-center bg-dark text-light fixed-bottom mb-0 py-3">
+ Copyright &copy; 2021 | All rights reserved 
+</p> </footer>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
